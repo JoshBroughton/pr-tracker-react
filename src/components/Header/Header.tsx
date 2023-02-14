@@ -7,9 +7,18 @@ function Header() {
         <div className="Header">
             <h1>PR Tracker</h1>
             <div className="headerNav">
-                <NavLink to='/'>Home</NavLink>
-                <NavLink to='/login'>Login</NavLink>
-                <NavLink to='/register'>Register</NavLink>
+                <NavLink 
+                    to='/' 
+                    className={({ isActive }) => isActive ? "nav-link-active" : "nav-link" }
+                    >Home</NavLink>
+                <NavLink 
+                    to='/login'
+                    className={({ isActive }) => isActive ? "nav-link-active" : "nav-link" }
+                    >Login</NavLink>
+                <NavLink 
+                to='/register'
+                className={({ isActive }) => isActive ? "nav-link-active" : "nav-link" }
+                >Register</NavLink>
             </div>
         </div>
     )

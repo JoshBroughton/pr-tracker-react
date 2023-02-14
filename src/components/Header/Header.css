@@ -16,3 +16,14 @@
     justify-content: space-evenly;
     color: white;
 }
+
+.nav-link {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.nav-link-active {
+    padding: 10px;
+    color: white;
+}
