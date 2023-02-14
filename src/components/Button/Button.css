@@ -1,0 +1,11 @@
+.my-button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: larger;
+}
+
+.my-button:hover {
+    transform: scale(1.1);
+}

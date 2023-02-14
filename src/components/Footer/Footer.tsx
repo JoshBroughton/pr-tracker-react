@@ -4,7 +4,7 @@ import "./Footer.css"
 function Footer() {
   return(
     <div className="Footer">
-      <p>Josh Broughton 2023</p>
+      <p>Josh Broughton, 2023</p>
       <a href='https://github.com/JoshBroughton'>
         <img 
           src={`${process.env.PUBLIC_URL}/images/GitHub-Mark-Light-64px.png`}

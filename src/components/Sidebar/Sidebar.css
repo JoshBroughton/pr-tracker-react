@@ -1,0 +1,14 @@
+.sidebar {
+    height: 100%;
+    padding-top: 25px;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.button-flex {
+    display: flex;
+    flex-direction: column;
+    height: 15%;
+    justify-content: space-evenly;
+}
