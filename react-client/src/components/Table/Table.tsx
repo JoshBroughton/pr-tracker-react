@@ -1,5 +1,4 @@
-import React, { useState, useRef, useEffect, useMemo, useCallback} from 'react';
-import { render } from 'react-dom';
+import React, { useState} from 'react';
 import "./Table.css";
 
 
