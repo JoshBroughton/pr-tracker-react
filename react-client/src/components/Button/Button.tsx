@@ -3,13 +3,13 @@ import './Button.css'
 
 interface ButtonProps {
   label: string
-  actionMethod: () => void;
+  setLift: (lift: string) => void;
 }
 
-function Button({label, actionMethod}: ButtonProps) {
+function Button({label, setLift}: ButtonProps) {
  
   return(
-    <button className="my-button" onClick={actionMethod}>{ label }</button>
+    <button className="my-button" onClick={() => {setLift(label)}}>{ label }</button>
   ) 
 }
 
