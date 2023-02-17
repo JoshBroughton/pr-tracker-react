@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import LoginButton from "../LoginButton/LoginButton";
+import LogoutButton from "../LogoutButton/LogoutButton";
 import './Header.css';
 
 function Header() {
@@ -12,11 +13,12 @@ function Header() {
                     to='/' 
                     className={({ isActive }) => isActive ? "nav-link-active" : "nav-link" }
                     >Home</NavLink>
-                <LoginButton />
+                <LoginButton className="nav-link"/>
+                <LogoutButton className="nav-link"/>
                 <NavLink 
-                to='/register'
-                className={({ isActive }) => isActive ? "nav-link-active" : "nav-link" }
-                >Register</NavLink>
+                    to='/profile' 
+                    className={({ isActive }) => isActive ? "nav-link-active" : "nav-link" }
+                    >Profile</NavLink>
             </div>
         </div>
     )
