@@ -5,32 +5,19 @@ import "./Table.css";
 interface LiftRecord {
   reps: number;
   weight: number;
-  date: Date;
+  date: string;
   e1rm: number;
 }
 
-const data: LiftRecord[] = [
-  {
-    reps: 1,
-    weight: 445,
-    date: new Date(),
-    e1rm: 445, 
-  },
-  {
-    reps: 2,
-    weight: 405,
-    date: new Date(),
-    e1rm: 435,
-  }
-]
-
 function Table() {
-  const [rowData, setRowData] = useState<LiftRecord[]>(data);
+  const [rowData, setRowData] = useState<LiftRecord[]>();
 
   useEffect(() => {
     fetch('/lifts')
       .then((response) => response.json())
-      .then((data) => console.log(data['squats']));
+      .then((data) => {
+        console.log(data['squats'])
+        setRowData(data['squats'])});
   }, [])
 
   function mapRow(row:LiftRecord):React.ReactElement {
@@ -39,11 +26,16 @@ function Table() {
         <td>{row.reps}</td>
         <td>{row.weight}</td>
         <td>{row.e1rm}</td>
-        <td>{row.date.toDateString()}</td>
+        <td>{row.date}</td>
       </tr>
     )
   };
-  let rows = rowData.map(mapRow);
+
+  let rows;
+  if (rowData) {
+    rows = rowData.map(mapRow);
+  }
+  
 
   return(
     <table className='table-auto'>
