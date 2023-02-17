@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import "./Table.css";
 
 
@@ -26,6 +26,12 @@ const data: LiftRecord[] = [
 
 function Table() {
   const [rowData, setRowData] = useState<LiftRecord[]>(data);
+
+  useEffect(() => {
+    fetch('/lifts')
+      .then((response) => response.json())
+      .then((data) => console.log(data['squats']));
+  }, [])
 
   function mapRow(row:LiftRecord):React.ReactElement {
     return(

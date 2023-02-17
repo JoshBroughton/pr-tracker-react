@@ -9,11 +9,48 @@ const jwtCheck = auth({
   tokenSigningAlg: 'RS256'
 });
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
+app.get('/lifts', (req, res) => {
+  const lifts = {
+    squats: [{
+      reps: 1,
+      weight: 445,
+      date: new Date(),
+      e1rm: 445, 
+    },
+    {
+      reps: 2,
+      weight: 405,
+      date: new Date(),
+      e1rm: 435,
+    }],
+    benches:
+    [{
+      reps: 1,
+      weight: 445,
+      date: new Date(),
+      e1rm: 445, 
+    },
+    {
+      reps: 2,
+      weight: 405,
+      date: new Date(),
+      e1rm: 435,
+    }],
+    deadlifts: [{
+      reps: 1,
+      weight: 445,
+      date: new Date(),
+      e1rm: 445, 
+    },
+    {
+      reps: 2,
+      weight: 405,
+      date: new Date(),
+      e1rm: 435,
+    }]
+  }
+  res.json(lifts)
 })
-
-app.get
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
