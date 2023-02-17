@@ -10,7 +10,7 @@ function Header() {
             <h1>PR Tracker</h1>
             <div className="headerNav">
                 <NavLink 
-                    to='/' 
+                    to='/'
                     className={({ isActive }) => isActive ? "nav-link-active" : "nav-link" }
                     >Home</NavLink>
                 <LoginButton className="nav-link"/>

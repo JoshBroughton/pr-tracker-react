@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "./Table.css";
 
-
 interface LiftRecord {
   reps: number;
   weight: number;
@@ -9,17 +8,12 @@ interface LiftRecord {
   e1rm: number;
 }
 
-function Table() {
-  const [rowData, setRowData] = useState<LiftRecord[]>();
+interface TableProps {
+  rowData: LiftRecord[] | undefined;
+}
 
-  useEffect(() => {
-    fetch('/lifts')
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data['squats'])
-        setRowData(data['squats'])});
-  }, [])
-
+function Table(props:TableProps) {
+  const rowData = props.rowData
   function mapRow(row:LiftRecord):React.ReactElement {
     return(
       <tr>

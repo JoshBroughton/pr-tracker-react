@@ -12,7 +12,7 @@ const jwtCheck = auth({
 app.get('/lifts', (req, res) => {
   date = new Date()
   const lifts = {
-    squats: [{
+    Squat: [{
       reps: 1,
       weight: 445,
       date: date.toDateString(),
@@ -24,24 +24,24 @@ app.get('/lifts', (req, res) => {
       date: date.toDateString(),
       e1rm: 435,
     }],
-    benches:
+    Bench:
     [{
       reps: 1,
-      weight: 445,
+      weight: 245,
       date: date.toDateString(),
-      e1rm: 445, 
+      e1rm: 245, 
     },
     {
       reps: 2,
-      weight: 405,
+      weight: 235,
       date: date.toDateString(),
-      e1rm: 435,
+      e1rm: 240,
     }],
-    deadlifts: [{
+    Deadlift: [{
       reps: 1,
-      weight: 445,
+      weight: 425,
       date: date.toDateString(),
-      e1rm: 445, 
+      e1rm: 425, 
     },
     {
       reps: 2,
