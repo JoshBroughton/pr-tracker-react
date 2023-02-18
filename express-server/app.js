@@ -1,7 +1,11 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const { auth } = require('express-oauth2-jwt-bearer');
 const port = 4000;
+
+app.use(cors())
+app.use(express.json())
 
 const jwtCheck = auth({
   audience: 'https://pr-tracker-api-endpoint',
@@ -51,6 +55,11 @@ app.get('/lifts', (req, res) => {
     }]
   }
   res.json(lifts)
+})
+
+app.post('/create-lift', (req, res) => {
+  console.log(req.body)
+  res.send('Received a post request'.json)
 })
 
 app.listen(port, () => {
