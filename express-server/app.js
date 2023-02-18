@@ -13,8 +13,7 @@ const jwtCheck = auth({
   tokenSigningAlg: 'RS256'
 });
 
-app.get('/lifts', (req, res) => {
-  date = new Date()
+date = new Date()
   const lifts = {
     Squat: [{
       reps: 1,
@@ -54,12 +53,16 @@ app.get('/lifts', (req, res) => {
       e1rm: 435,
     }]
   }
+
+app.get('/lifts', (req, res) => {
   res.json(lifts)
 })
 
 app.post('/create-lift', (req, res) => {
-  console.log(req.body)
-  res.send('Received a post request'.json)
+  console.log(req.body);
+  newLift = req.body;
+  lifts[newLift.lift].push({reps: newLift.reps, weight: newLift.weight, date: newLift.date, e1rm: 200 })
+  res.send();
 })
 
 app.listen(port, () => {

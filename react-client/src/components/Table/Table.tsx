@@ -16,7 +16,7 @@ function Table(props:TableProps) {
   const rowData = props.rowData
   function mapRow(row:LiftRecord):React.ReactElement {
     return(
-      <tr>
+      <tr key={row.reps}>
         <td>{row.reps}</td>
         <td>{row.weight}</td>
         <td>{row.e1rm}</td>
@@ -34,10 +34,12 @@ function Table(props:TableProps) {
   return(
     <table className='table-auto'>
       <thead>
-        <th>Reps</th>
-        <th>Weight</th>
-        <th>Estimated 1-Rep Max</th>
-        <th>Date</th>
+        <tr>
+          <th>Reps</th>
+          <th>Weight</th>
+          <th>Estimated 1-Rep Max</th>
+          <th>Date</th>
+        </tr>
       </thead>
       <tbody>
         {rows}

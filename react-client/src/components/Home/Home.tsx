@@ -13,7 +13,8 @@ interface LiftRecord {
 
 function Home() {
   const [rowData, setRowData] = useState<LiftRecord[]>();
-  const [lift, setLift] = useState<String>('Squat');
+  const [lift, setLift] = useState<string>('Squat');
+  const [newData, setNewData] = useState<boolean>(false);
 
   useEffect(() => {
     fetch('/lifts')
@@ -21,7 +22,7 @@ function Home() {
       .then((data) => {
         console.log(data[`${lift}`])
         setRowData(data[`${lift}`])});
-  }, [lift])
+  }, [lift, newData])
 
   return(
     <div className="main-container">
@@ -30,7 +31,7 @@ function Home() {
         <h2 className="heading">{ lift }</h2>
         <h3 className="heading">Current e1rm: inject here</h3>
         <Table rowData={rowData}/>
-        <AddLift />
+        <AddLift lift={lift} newData={newData} setNewData={setNewData}/>
       </div>
     </div>
   )

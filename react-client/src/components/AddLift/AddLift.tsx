@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
+import './AddLift.css';
 
+interface AddLiftProps {
+  lift: string,
+  setNewData: (newData:boolean) => void,
+  newData: boolean,
+}
 
-function AddLift() {
+function AddLift(props:AddLiftProps) {
   const [reps, setReps] = useState<number>(1);
   const [message, setMessage] = useState<string>('');
   const [weight, setWeight] = useState<number>(0);
-  const [date, setDate] = useState<string>((new Date()).toISOString())
+  const [date, setDate] = useState<string>((new Date()).toISOString().substring(0, 10))
 
   const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -13,6 +19,7 @@ function AddLift() {
       fetch("/create-lift", {
         method: "POST",
         body: JSON.stringify({
+          lift: props.lift,
           reps: reps,
           weight: weight,
           date: date,
@@ -22,15 +29,18 @@ function AddLift() {
         }
       })
       .then(res => {
-        res.json()
         if (res.status === 200) {
           setReps(1);
+          setWeight(0);
+          setDate((new Date()).toISOString().substring(0, 10));
+          props.setNewData(props.newData === false ? true : false)
+          console.log('Here')
           setMessage("Lift added successfully");
         } else {
           setMessage("Some error occured");
         }
       })
-      .then(data => console.log(data))
+      .then(data => data)
     } catch (err) {
       console.log(err);
     }
@@ -41,7 +51,7 @@ function AddLift() {
     repOptions.push(i)
   }
   const mappedRepOptions = repOptions.map((i) => {
-    return(<option value={i}>{i}</option>)
+    return(<option key={i} value={i}>{i}</option>)
   })
 
   return(
