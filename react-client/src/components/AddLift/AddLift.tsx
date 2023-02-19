@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useAuth0 } from "@auth0/auth0-react";
 import './AddLift.css';
 
 interface AddLiftProps {
@@ -12,6 +13,7 @@ function AddLift(props:AddLiftProps) {
   const [message, setMessage] = useState<string>('');
   const [weight, setWeight] = useState<number>(0);
   const [date, setDate] = useState<string>((new Date()).toISOString().substring(0, 10))
+  const { user } = useAuth0();
 
   const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -19,7 +21,8 @@ function AddLift(props:AddLiftProps) {
       fetch("/create-lift", {
         method: "POST",
         body: JSON.stringify({
-          lift: props.lift,
+          user_id: user?.sub,
+          lift_type: props.lift,
           reps: reps,
           weight: weight,
           date: date,
@@ -34,7 +37,6 @@ function AddLift(props:AddLiftProps) {
           setWeight(0);
           setDate((new Date()).toISOString().substring(0, 10));
           props.setNewData(props.newData === false ? true : false)
-          console.log('Here')
           setMessage("Lift added successfully");
         } else {
           setMessage("Some error occured");

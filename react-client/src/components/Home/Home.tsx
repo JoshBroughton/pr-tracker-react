@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 import './Home.css'
 import Table from "../Table/Table";
 import Sidebar from "../Sidebar/Sidebar";
@@ -8,21 +9,31 @@ interface LiftRecord {
   reps: number;
   weight: number;
   date: string;
-  e1rm: number;
+  estimated_max: number;
 }
 
 function Home() {
   const [rowData, setRowData] = useState<LiftRecord[]>();
   const [lift, setLift] = useState<string>('Squat');
   const [newData, setNewData] = useState<boolean>(false);
+  const { user } = useAuth0();
 
   useEffect(() => {
-    fetch('/lifts')
+    fetch('/lifts', {
+      method: "POST",
+      body: JSON.stringify({
+        user_id: user?.sub,
+        lift_type: lift,
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data[`${lift}`])
-        setRowData(data[`${lift}`])});
-  }, [lift, newData])
+        console.log(data)
+        setRowData(data)});
+  }, [lift, newData, user])
 
   return(
     <div className="main-container">

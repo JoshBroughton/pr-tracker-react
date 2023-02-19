@@ -5,7 +5,7 @@ interface LiftRecord {
   reps: number;
   weight: number;
   date: string;
-  e1rm: number;
+  estimated_max: number;
 }
 
 interface TableProps {
@@ -19,7 +19,7 @@ function Table(props:TableProps) {
       <tr key={row.reps}>
         <td>{row.reps}</td>
         <td>{row.weight}</td>
-        <td>{row.e1rm}</td>
+        <td>{Number(row.estimated_max).toFixed(2)}</td>
         <td>{row.date}</td>
       </tr>
     )
