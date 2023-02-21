@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import "./Table.css";
 
 interface LiftRecord {
   reps: number;
   weight: number;
   date: string;
-  e1rm: number;
+  estimated_max: number;
 }
 
 interface TableProps {
@@ -16,10 +16,10 @@ function Table(props:TableProps) {
   const rowData = props.rowData
   function mapRow(row:LiftRecord):React.ReactElement {
     return(
-      <tr>
+      <tr key={row.reps}>
         <td>{row.reps}</td>
         <td>{row.weight}</td>
-        <td>{row.e1rm}</td>
+        <td>{Number(row.estimated_max).toFixed(2)}</td>
         <td>{row.date}</td>
       </tr>
     )
@@ -34,10 +34,12 @@ function Table(props:TableProps) {
   return(
     <table className='table-auto'>
       <thead>
-        <th>Reps</th>
-        <th>Weight</th>
-        <th>Estimated 1-Rep Max</th>
-        <th>Date</th>
+        <tr>
+          <th>Reps</th>
+          <th>Weight</th>
+          <th>Estimated 1-Rep Max</th>
+          <th>Date</th>
+        </tr>
       </thead>
       <tbody>
         {rows}

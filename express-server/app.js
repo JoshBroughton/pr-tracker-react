@@ -1,56 +1,38 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const { auth } = require('express-oauth2-jwt-bearer');
+const pool = require('./db');
 const port = 4000;
 
-const jwtCheck = auth({
-  audience: 'https://pr-tracker-api-endpoint',
-  issuerBaseURL: 'https://dev-51h0rrt38nuipv61.us.auth0.com/',
-  tokenSigningAlg: 'RS256'
-});
+app.use(cors())
+app.use(express.json())
 
-app.get('/lifts', (req, res) => {
-  date = new Date()
-  const lifts = {
-    Squat: [{
-      reps: 1,
-      weight: 445,
-      date: date.toDateString(),
-      e1rm: 445, 
-    },
-    {
-      reps: 2,
-      weight: 405,
-      date: date.toDateString(),
-      e1rm: 435,
-    }],
-    Bench:
-    [{
-      reps: 1,
-      weight: 245,
-      date: date.toDateString(),
-      e1rm: 245, 
-    },
-    {
-      reps: 2,
-      weight: 235,
-      date: date.toDateString(),
-      e1rm: 240,
-    }],
-    Deadlift: [{
-      reps: 1,
-      weight: 425,
-      date: date.toDateString(),
-      e1rm: 425, 
-    },
-    {
-      reps: 2,
-      weight: 405,
-      date: date.toDateString(),
-      e1rm: 435,
-    }]
+app.post('/lifts', async (req, res) => {
+  const { user_id, lift_type } = req.body;
+  try {
+    const lifts = await pool.query(
+      'SELECT reps, weight, date, estimated_max FROM lifts WHERE user_id = $1 AND lift_type = $2',
+      [user_id, lift_type]
+    )
+    console.log(lifts.rows)
+    res.json(lifts.rows)
+  } catch (error) {
+    console.error(error.message);
   }
-  res.json(lifts)
+})
+
+app.post('/create-lift', async (req, res) => {
+  try {
+    const { user_id, lift_type, reps, weight, date} = req.body;
+    const lift = await pool.query(
+      'INSERT INTO lifts(user_id, lift_type, reps, weight, date) values($1, $2, $3, $4, $5)',
+      [user_id, lift_type, reps, weight, date]
+    )
+  } catch (error) {
+    console.error(error.message)
+  }
+  res.send();
 })
 
 app.listen(port, () => {
