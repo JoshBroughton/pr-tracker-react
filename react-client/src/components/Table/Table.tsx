@@ -24,7 +24,7 @@ function Table(props:TableProps) {
         <td>{row.reps}</td>
         <td>{row.weight}</td>
         <td>{Number(row.estimated_max).toFixed(2)}</td>
-        <td>{row.date}</td>
+        <td>{(new Date(row.date)).toDateString().substring(4)}</td>
       </tr>
     )
   };
