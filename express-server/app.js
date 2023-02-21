@@ -12,8 +12,9 @@ app.post('/lifts', async (req, res) => {
   const { user_id, lift_type } = req.body;
   try {
     const lifts = await pool.query(
-      'SELECT reps, weight, date, estimated_max FROM lifts WHERE user_id = $1 AND lift_type = $2',
-      [user_id, lift_type]
+      'SELECT reps, weight, estimated_max, date FROM lifts ' +
+      'WHERE user_id = $1 AND lift_type = $2 AND weight IN (SELECT MAX(weight) FROM lifts WHERE user_id = $3 AND lift_type = $4 GROUP BY reps)',
+      [user_id, lift_type, user_id, lift_type]
     )
     console.log(lifts.rows)
     res.json(lifts.rows)
