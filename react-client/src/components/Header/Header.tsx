@@ -15,10 +15,6 @@ function Header() {
                     >Home</NavLink>
                 <LoginButton className="nav-link"/>
                 <LogoutButton className="nav-link"/>
-                <NavLink 
-                    to='/profile' 
-                    className={({ isActive }) => isActive ? "nav-link-active" : "nav-link" }
-                    >Profile</NavLink>
             </div>
         </div>
     )
