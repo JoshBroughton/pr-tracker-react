@@ -4,7 +4,6 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import Home from './components/Home/Home';
-import Profile from './components/Profile/Profile';
 import reportWebVitals from './reportWebVitals';
 import { Auth0Provider } from '@auth0/auth0-react';
 
@@ -25,7 +24,6 @@ root.render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route path="/" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
         </Route>
       </Routes>
     </Router>

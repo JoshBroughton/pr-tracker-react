@@ -46,7 +46,7 @@ function Home() {
       <Sidebar setLift={setLift}/>
       <div className="content-container">
         <h2 className="heading">{ lift }</h2>
-        <h3 className="heading">Current e1rm: { Number(e1rm).toFixed(2) }</h3>
+        <h3 className="heading">Best e1rm: { Number(e1rm).toFixed(2) }</h3>
         <Table rowData={rowData}/>
         <AddLift lift={lift} newData={newData} setNewData={setNewData}/>
       </div>
