@@ -68,7 +68,8 @@ function AddLift(props:AddLiftProps) {
       <label>
         Enter the weight:
         <input
-          type="number"
+          type="text"
+          pattern="[0-9]*" // this fixes the weird leading zero issue
           value={weight}
           onChange={(e) => setWeight(Number(e.target.value))}
         />
