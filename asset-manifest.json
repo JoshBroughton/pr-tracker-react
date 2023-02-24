@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/pr-tracker-react/static/css/main.8d8d471e.css",
+    "main.js": "/pr-tracker-react/static/js/main.1b8e5c4e.js",
+    "static/js/787.92ee7bcc.chunk.js": "/pr-tracker-react/static/js/787.92ee7bcc.chunk.js",
+    "index.html": "/pr-tracker-react/index.html",
+    "main.8d8d471e.css.map": "/pr-tracker-react/static/css/main.8d8d471e.css.map",
+    "main.1b8e5c4e.js.map": "/pr-tracker-react/static/js/main.1b8e5c4e.js.map",
+    "787.92ee7bcc.chunk.js.map": "/pr-tracker-react/static/js/787.92ee7bcc.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8d8d471e.css",
+    "static/js/main.1b8e5c4e.js"
+  ]
+}
