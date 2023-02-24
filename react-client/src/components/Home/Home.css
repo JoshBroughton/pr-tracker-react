@@ -3,7 +3,6 @@
     height: 100%;
     grid-template-columns: 200px 1fr 200px;
     font-size: larger;
-    border: 1px solid black;
 }
 
 .grid-sub-container {
@@ -18,10 +17,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    overflow-y: scroll;
-    border: 1px solid black;
+    margin: 20px;
     width: 850px;
-    height: 725px;
 }
 
 .heading {
