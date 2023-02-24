@@ -5,7 +5,7 @@ const pool = require('./db');
 const port = 4000;
 
 const corsOptions = {
-  origin: 'https://joshbroughton.github.io/pr-tracker-react/',
+  origin: 'https://joshbroughton.github.io',
   optionsSuccessStatus: 200,
 };
 
