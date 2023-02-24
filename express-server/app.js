@@ -9,7 +9,11 @@ const corsOptions = {
   optionsSuccessStatus: 200,
 };
 
+app.use(cors())
 app.use(express.json())
+
+app.options('/lifts', cors());
+app.options('/create-lift', cors());
 
 app.post('/lifts', cors(corsOptions), async (req, res) => {
   const { user_id, lift_type } = req.body;
