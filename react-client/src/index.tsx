@@ -12,12 +12,19 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
+let redirect_url:string | undefined;
+if (process.env.NODE_ENV === 'development') {
+  redirect_url = window.location.origin;
+} else {
+  redirect_url = 'https://joshbroughton.github.io/pr-tracker-react/';
+}
+
 root.render(
   <Auth0Provider
     domain="dev-51h0rrt38nuipv61.us.auth0.com"
     clientId="yIdKiWfIAtCkUfsIJP0sS9joo7SCjsZQ"
     authorizationParams={{
-      redirect_uri: window.location.origin
+      redirect_uri: redirect_url,
     }}
   >
     <Router>
