@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/pr-tracker-react/static/css/main.3028506b.css",
-    "main.js": "/pr-tracker-react/static/js/main.087d22f1.js",
+    "main.js": "/pr-tracker-react/static/js/main.f21472a2.js",
     "static/js/787.92ee7bcc.chunk.js": "/pr-tracker-react/static/js/787.92ee7bcc.chunk.js",
     "index.html": "/pr-tracker-react/index.html",
     "main.3028506b.css.map": "/pr-tracker-react/static/css/main.3028506b.css.map",
-    "main.087d22f1.js.map": "/pr-tracker-react/static/js/main.087d22f1.js.map",
+    "main.f21472a2.js.map": "/pr-tracker-react/static/js/main.f21472a2.js.map",
     "787.92ee7bcc.chunk.js.map": "/pr-tracker-react/static/js/787.92ee7bcc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3028506b.css",
-    "static/js/main.087d22f1.js"
+    "static/js/main.f21472a2.js"
   ]
 }
