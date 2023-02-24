@@ -20,7 +20,6 @@ app.post('/lifts', cors(corsOptions), async (req, res) => {
       'ON a.reps = b.reps AND a.weight = b.max_weight AND a.user_id = $1 AND a.lift_type = $2',
       [user_id, lift_type]
     )
-    console.log(lifts.rows)
     res.json(lifts.rows)
   } catch (error) {
     console.error(error.message);

@@ -6,6 +6,13 @@ import Sidebar from "../Sidebar/Sidebar";
 import AddLift from "../AddLift/AddLift";
 import Calculator from "../Calculator/Calculator";
 
+let url:string | undefined;
+if (process.env.NODE_ENV === 'development') {
+  url = process.env.REACT_APP_LOCAL_URL;
+} else {
+  url = process.env.REACT_APP_PROD_URL;
+}
+
 export interface LiftRecord {
   reps: number;
   weight: number;
@@ -22,7 +29,7 @@ function Home() {
   const { user } = useAuth0();
 
   useEffect(() => {
-    fetch('/lifts', {
+    fetch((url + '/lifts'), {
       method: "POST",
       body: JSON.stringify({
         user_id: user?.sub,

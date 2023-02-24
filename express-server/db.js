@@ -3,7 +3,7 @@ require('dotenv').config();
 // this is what connects express to the db
 let pool;
 // for localhost connections (development)
-if (process.env.NODE_ENV === 'DEVELOPMENT') {
+if (process.env.NODE_ENV === "'DEVELOPMENT';") {
   pool = new Pool({
     user: 'postgres',
     password: '',
@@ -16,6 +16,5 @@ if (process.env.NODE_ENV === 'DEVELOPMENT') {
     connectionString: process.env.CONNECTION_STRING,
   })
 }
-
 
 module.exports = pool;

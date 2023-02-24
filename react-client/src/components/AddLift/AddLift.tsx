@@ -8,6 +8,13 @@ interface AddLiftProps {
   newData: boolean,
 }
 
+let url:string | undefined;
+if (process.env.NODE_ENV === 'development') {
+  url = process.env.REACT_APP_LOCAL_URL;
+} else {
+  url = process.env.REACT_APP_PROD_URL;
+}
+
 function AddLift(props:AddLiftProps) {
   const [reps, setReps] = useState<number>(1);
   const [message, setMessage] = useState<string>('');
@@ -18,7 +25,7 @@ function AddLift(props:AddLiftProps) {
   const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      fetch("/create-lift", {
+      fetch(url + "/create-lift", {
         method: "POST",
         body: JSON.stringify({
           user_id: user?.sub,
