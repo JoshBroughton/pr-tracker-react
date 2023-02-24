@@ -14,7 +14,7 @@ export interface LiftRecord {
 }
 
 function Home() {
-  const [rowData, setRowData] = useState<LiftRecord[]>();
+  const [rowData, setRowData] = useState<LiftRecord[]>([]);
   const [e1rm, setE1rm] = useState<number>(0);
   const [lift, setLift] = useState<string>('Squat');
   const [newData, setNewData] = useState<boolean>(false);
@@ -45,7 +45,7 @@ function Home() {
   })
 
   let content;
-  if (view === 'Table') {
+  if (view === 'Table' && rowData.length !== 0) {
     content = (
     <div className="content-container">
       <h2 className="heading">{ lift }</h2>
@@ -55,10 +55,17 @@ function Home() {
       <AddLift lift={lift} newData={newData} setNewData={setNewData}/>
     </div>
     )
-  } else {
+  } else if (view === 'Calculator') {
     content = (
     <div className="content-container">
       <Calculator lift={lift} rowData={rowData} e1rm={e1rm} />
+    </div>
+    )
+  } else {
+    content = (
+    <div className="content-container">
+      <h2 className="heading">{ lift }</h2> 
+      <AddLift lift={lift} newData={newData} setNewData={setNewData}/> 
     </div>
     )
   }
