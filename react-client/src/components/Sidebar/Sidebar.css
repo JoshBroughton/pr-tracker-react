@@ -9,6 +9,6 @@
 .button-flex {
     display: flex;
     flex-direction: column;
-    height: 15%;
+    height: 35%;
     justify-content: space-evenly;
 }

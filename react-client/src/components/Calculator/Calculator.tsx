@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { LiftRecord } from "../Home/Home";
+import './Calculator.css';
 
 interface CalculatorProps {
   rowData: LiftRecord[] | undefined,
@@ -31,13 +32,14 @@ function Calculator({ rowData, e1rm, lift }:CalculatorProps) {
   };
 
   return(
-    <>
+    <div className="calc-content">
       <h2>Lift Type: {lift}</h2>
       <form onSubmit={calculateMax}>
         <label>
           Enter the weight for the AMRAP set to get the number of reps required for a new PR:
           <input
-            type="number"
+            type="text"
+            pattern="[0-9]*" // this fixes the weird leading zero issue
             value={weight}
             onChange={(e) => setWeight(Number(e.target.value))}
           />
@@ -48,9 +50,9 @@ function Calculator({ rowData, e1rm, lift }:CalculatorProps) {
       <p>{weight}</p>
       <h2>Reps required for new high estimated 1 rep max:</h2>
       <p>{repsRequired}</p>
-      <h2>New estimated 1 rep max:</h2>
+      <h2>New estimated 1 rep max if successful:</h2>
       <p>{newE1rm}</p>
-    </>
+    </div>
   )
 }
 

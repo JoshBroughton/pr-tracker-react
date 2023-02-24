@@ -66,7 +66,9 @@ function Home() {
   return(
     <div className="main-container">
       <Sidebar setView={setView} setLift={setLift}/>
-      {content}
+      <div className="grid-sub-container">
+        {content}
+      </div>
     </div>
   )
 }

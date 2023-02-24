@@ -1,9 +1,16 @@
 .main-container {
     display: grid;
     height: 100%;
-    grid-template-columns: 150px 1fr 150px;
+    grid-template-columns: 200px 1fr 200px;
     font-size: larger;
-    
+    border: 1px solid black;
+}
+
+.grid-sub-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .content-container {
@@ -11,12 +18,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    overflow-y: scroll;
+    border: 1px solid black;
+    width: 850px;
+    height: 725px;
 }
 
 .heading {
     margin: 10px;
-}
-
-h2.heading {
-    margin-top: 40px;
 }

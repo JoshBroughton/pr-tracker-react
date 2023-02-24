@@ -57,34 +57,33 @@ function AddLift(props:AddLiftProps) {
   })
 
   return(
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Select number of Reps:
-          <select value={reps} onChange={(e) => setReps(Number(e.target.value))}>
-            {mappedRepOptions}
-          </select>
-        </label>
-        <label>
-          Enter the weight:
-          <input
-            type="number"
-            value={weight}
-            onChange={(e) => setWeight(Number(e.target.value))}
-          />
-        </label>
-        <label>
-          Enter the date:
-          <input
-            type="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-          />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+    <form className="calc-form" onSubmit={handleSubmit}>
+      <h2>Add a new lift record</h2>
+      <label>
+        Select number of Reps:
+        <select value={reps} onChange={(e) => setReps(Number(e.target.value))}>
+          {mappedRepOptions}
+        </select>
+      </label>
+      <label>
+        Enter the weight:
+        <input
+          type="number"
+          value={weight}
+          onChange={(e) => setWeight(Number(e.target.value))}
+        />
+      </label>
+      <label>
+        Enter the date:
+        <input
+          type="date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+        />
+      </label>
+      <input type="submit" value="Submit" />
       <p>{message}</p>
-    </div>
+    </form>
   )
 }
 
