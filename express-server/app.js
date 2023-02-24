@@ -4,10 +4,14 @@ const app = express();
 const pool = require('./db');
 const port = 4000;
 
-app.use(cors())
+const corsOptions = {
+  origin: 'https://joshbroughton.github.io/pr-tracker-react/',
+  optionsSuccessStatus: 200,
+};
+
 app.use(express.json())
 
-app.post('/lifts', async (req, res) => {
+app.post('/lifts', cors(corsOptions), async (req, res) => {
   const { user_id, lift_type } = req.body;
   try {
     const lifts = await pool.query(
@@ -23,7 +27,7 @@ app.post('/lifts', async (req, res) => {
   }
 })
 
-app.post('/create-lift', async (req, res) => {
+app.post('/create-lift', cors(corsOptions), async (req, res) => {
   try {
     const { user_id, lift_type, reps, weight, date} = req.body;
     const lift = await pool.query(
@@ -37,5 +41,5 @@ app.post('/create-lift', async (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`PR Tracker API app listening`);
 })
