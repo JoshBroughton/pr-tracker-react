@@ -1,9 +1,15 @@
 .main-container {
     display: grid;
     height: 100%;
-    grid-template-columns: 150px 1fr 150px;
+    grid-template-columns: 200px 1fr 200px;
     font-size: larger;
-    
+}
+
+.grid-sub-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .content-container {
@@ -11,12 +17,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    margin: 20px;
+    width: 850px;
 }
 
 .heading {
     margin: 10px;
-}
-
-h2.heading {
-    margin-top: 40px;
 }

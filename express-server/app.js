@@ -1,7 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const { auth } = require('express-oauth2-jwt-bearer');
 const pool = require('./db');
 const port = 4000;
 
@@ -12,8 +11,9 @@ app.post('/lifts', async (req, res) => {
   const { user_id, lift_type } = req.body;
   try {
     const lifts = await pool.query(
-      'SELECT reps, weight, estimated_max, date FROM lifts ' +
-      'WHERE user_id = $1 AND lift_type = $2 AND weight IN (SELECT MAX(weight) FROM lifts WHERE user_id = $1 AND lift_type = $2 GROUP BY reps)',
+      'SELECT a.reps, a.weight, a.estimated_max, a.date FROM lifts AS a ' +
+      'INNER JOIN (SELECT reps, MAX(weight) AS max_weight FROM lifts WHERE user_id = $1 AND lift_type = $2 GROUP BY reps) as b ' +
+      'ON a.reps = b.reps AND a.weight = b.max_weight AND a.user_id = $1 AND a.lift_type = $2',
       [user_id, lift_type]
     )
     console.log(lifts.rows)
