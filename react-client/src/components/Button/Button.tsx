@@ -2,14 +2,16 @@ import React from "react";
 import './Button.css'
 
 interface ButtonProps {
+  rowId?: number,
+  className: string,
   label: string
   onClick: (lift: string) => void;
 }
 
-function Button({label, onClick}: ButtonProps) {
+function Button({ className, label, onClick }: ButtonProps) {
  
   return(
-    <button className="my-button" onClick={() => {onClick(label)}}>{ label }</button>
+    <button className={className} onClick={() => {onClick(label)}}>{ label }</button>
   ) 
 }
 

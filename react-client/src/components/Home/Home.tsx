@@ -15,6 +15,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 export interface LiftRecord {
+  id: number;
   reps: number;
   weight: number;
   date: string;
@@ -59,7 +60,7 @@ function Home() {
       <h2 className="heading">{ lift }</h2>
       <h3 className="heading">Best e1rm: { Number(e1rm).toFixed(2) }</h3>
       
-      <Table rowData={rowData}/>
+      <Table newData={newData} setNewData={setNewData} userID={user?.sub} lift={lift} rowData={rowData}/>
       <AddLift lift={lift} newData={newData} setNewData={setNewData}/>
     </div>
     )

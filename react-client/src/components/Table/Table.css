@@ -6,3 +6,7 @@ table, td, th {
 table {
     border-collapse: collapse;
 }
+
+.delete-button {
+  color: black;
+}

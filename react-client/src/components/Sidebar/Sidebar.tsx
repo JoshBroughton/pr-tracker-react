@@ -13,13 +13,13 @@ function Sidebar({setLift, setView}:SidebarProps) {
       <div className="sidebar">
         <div className="button-flex">
           <h2>Select Lift</h2>
-          <Button onClick={setLift} label="Squat"/>
-          <Button onClick={setLift} label="Bench"/>
-          <Button onClick={setLift} label="Deadlift"/>
+          <Button className={'my-button'} onClick={setLift} label="Squat"/>
+          <Button className={'my-button'} onClick={setLift} label="Bench"/>
+          <Button className={'my-button'} onClick={setLift} label="Deadlift"/>
           <h2>Select View</h2>
-          <Button onClick={setView} label="Table"/>
-          <Button onClick={setView} label="Graph"/>
-          <Button onClick={setView} label="Calculator"/>
+          <Button className={'my-button'} onClick={setView} label="Table"/>
+          <Button className={'my-button'} onClick={setView} label="Graph"/>
+          <Button className={'my-button'} onClick={setView} label="Calculator"/>
         </div>
       </div>
     </>   
