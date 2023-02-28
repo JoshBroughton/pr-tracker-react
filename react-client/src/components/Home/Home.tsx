@@ -5,6 +5,7 @@ import Table from "../Table/Table";
 import Sidebar from "../Sidebar/Sidebar";
 import AddLift from "../AddLift/AddLift";
 import Calculator from "../Calculator/Calculator";
+import Graph from "../Graph/Graph";
 
 let url:string | undefined;
 if (process.env.NODE_ENV === 'development') {
@@ -66,6 +67,12 @@ function Home() {
     content = (
     <div className="content-container">
       <Calculator lift={lift} rowData={rowData} e1rm={e1rm} />
+    </div>
+    )
+  } else if (view === 'Graph') {
+    content = (
+    <div className="content-container">
+      <Graph lift={lift} user_id={user?.sub} />
     </div>
     )
   } else {

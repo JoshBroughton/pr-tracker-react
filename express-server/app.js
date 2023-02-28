@@ -3,7 +3,7 @@ const cors = require('cors');
 const app = express();
 const pool = require('./db');
 const port = 4000;
-
+// run with node app.js
 const corsOptions = {
   origin: 'https://joshbroughton.github.io',
   optionsSuccessStatus: 200,
@@ -41,6 +41,20 @@ app.post('/create-lift', cors(corsOptions), async (req, res) => {
     console.error(error.message)
   }
   res.send();
+})
+
+app.post('/all_lifts', cors(corsOptions), async (req, res) => {
+  const { user_id, lift_type } = req.body;
+  try {
+    const lifts = await pool.query(
+      'SELECT estimated_max, date FROM lifts WHERE user_id = $1 AND lift_type = $2',
+      [user_id, lift_type]
+    )
+    res.json(lifts.rows)
+    console.log(lifts.rows)
+  } catch (error) {
+    console.error(error.message);
+  }
 })
 
 app.listen(port, () => {
