@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/pr-tracker-react/static/css/main.3028506b.css",
-    "main.js": "/pr-tracker-react/static/js/main.f21472a2.js",
+    "main.css": "/pr-tracker-react/static/css/main.40b88331.css",
+    "main.js": "/pr-tracker-react/static/js/main.f6a23788.js",
     "static/js/787.92ee7bcc.chunk.js": "/pr-tracker-react/static/js/787.92ee7bcc.chunk.js",
     "index.html": "/pr-tracker-react/index.html",
-    "main.3028506b.css.map": "/pr-tracker-react/static/css/main.3028506b.css.map",
-    "main.f21472a2.js.map": "/pr-tracker-react/static/js/main.f21472a2.js.map",
+    "main.40b88331.css.map": "/pr-tracker-react/static/css/main.40b88331.css.map",
+    "main.f6a23788.js.map": "/pr-tracker-react/static/js/main.f6a23788.js.map",
     "787.92ee7bcc.chunk.js.map": "/pr-tracker-react/static/js/787.92ee7bcc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3028506b.css",
-    "static/js/main.f21472a2.js"
+    "static/css/main.40b88331.css",
+    "static/js/main.f6a23788.js"
   ]
 }
