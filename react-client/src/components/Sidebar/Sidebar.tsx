@@ -18,6 +18,7 @@ function Sidebar({setLift, setView}:SidebarProps) {
           <Button onClick={setLift} label="Deadlift"/>
           <h2>Select View</h2>
           <Button onClick={setView} label="Table"/>
+          <Button onClick={setView} label="Graph"/>
           <Button onClick={setView} label="Calculator"/>
         </div>
       </div>
