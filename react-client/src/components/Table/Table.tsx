@@ -1,15 +1,20 @@
 import React from 'react';
 import "./Table.css";
-
-interface LiftRecord {
-  reps: number;
-  weight: number;
-  date: string;
-  estimated_max: number;
-}
+import { LiftRecord } from '../Home/Home';
 
 interface TableProps {
   rowData: LiftRecord[] | undefined;
+  userID: string | undefined;
+  lift: string;
+  newData: boolean;
+  setNewData: (newData:boolean) => void;
+}
+
+let url:string | undefined;
+if (process.env.NODE_ENV === 'development') {
+  url = process.env.REACT_APP_LOCAL_URL;
+} else {
+  url = process.env.REACT_APP_PROD_URL;
 }
 
 function Table(props:TableProps) {
@@ -18,6 +23,28 @@ function Table(props:TableProps) {
     return a.reps - b.reps;
   })
 
+  const deleteItem = async (e:React.BaseSyntheticEvent) => {
+    try {
+      fetch(url + "/delete_lift", {
+        method: "POST",
+        body: JSON.stringify({
+          id: e.target.value,
+          user_id: props.userID,
+          lift_type: props.lift,
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(res => {
+        props.newData ? props.setNewData(false) : props.setNewData(true)
+      })
+      .then(data => data)
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   function mapRow(row:LiftRecord):React.ReactElement {
     return(
       <tr key={row.reps}>
@@ -25,6 +52,7 @@ function Table(props:TableProps) {
         <td>{row.weight}</td>
         <td>{Number(row.estimated_max).toFixed(2)}</td>
         <td>{(new Date(row.date)).toDateString().substring(4)}</td>
+        <td><button name="delete" onClick={deleteItem} value={row.id}>Delete</button></td>
       </tr>
     )
   };
@@ -43,6 +71,7 @@ function Table(props:TableProps) {
           <th>Weight</th>
           <th>Estimated 1-Rep Max</th>
           <th>Date</th>
+          <th>DELETE</th>
         </tr>
       </thead>
       <tbody>

@@ -50,7 +50,6 @@ function Graph({ lift, user_id }:GraphProps) {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
         setData(data)});
   }, [lift, user_id])
 
