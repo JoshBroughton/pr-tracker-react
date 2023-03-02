@@ -31,17 +31,17 @@ if (process.env.NODE_ENV === 'development') {
 
 interface GraphProps {
   lift: string,
-  user_id: string | undefined,
+  userID: string | undefined,
 }
 
-function Graph({ lift, user_id }:GraphProps) {
+function Graph({ lift, userID }:GraphProps) {
   const [data, setData] = useState<LiftRecord[]>([]);
   
   useEffect(() => {
     fetch((url + '/all_lifts'), {
       method: "POST",
       body: JSON.stringify({
-        user_id: user_id,
+        user_id: userID,
         lift_type: lift,
       }),
       headers: {
@@ -51,7 +51,7 @@ function Graph({ lift, user_id }:GraphProps) {
       .then((response) => response.json())
       .then((data) => {
         setData(data)});
-  }, [lift, user_id])
+  }, [lift, userID])
 
   interface DateMaxObject {
     [index: string]: number,
