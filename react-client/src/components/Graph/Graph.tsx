@@ -53,8 +53,29 @@ function Graph({ lift, user_id }:GraphProps) {
         setData(data)});
   }, [lift, user_id])
 
+  interface DateMaxObject {
+    [index: string]: number,
+  }
+
+  const dates:DateMaxObject = {};
   let dataset = {
     labels: data
+      .sort((a, b) => {
+        return b.estimated_max - a.estimated_max;
+      })
+      .filter((point) => {
+        if (Object.keys(dates).includes(point.date)) {
+          if (dates[point.date] > point.estimated_max) {
+            return false;
+          } else {
+            dates[point.date] = point.estimated_max;
+            return true;
+          }
+        } else {
+          dates[point.date] = point.estimated_max;
+          return true;
+        }
+      })
       .sort((a, b) => {
         return new Date(a.date).getTime() - new Date(b.date).getTime();
       })
