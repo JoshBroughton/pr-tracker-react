@@ -73,6 +73,7 @@ function Home() {
   } else if (view === 'Graph') {
     content = (
     <div className="content-container">
+      <h2 className="heading">{ lift }</h2>
       <Graph lift={lift} user_id={user?.sub} />
     </div>
     )
