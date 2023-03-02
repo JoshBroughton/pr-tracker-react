@@ -28,13 +28,14 @@ function Home() {
   const [lift, setLift] = useState<string>('Squat');
   const [newData, setNewData] = useState<boolean>(false);
   const [view, setView] = useState<string>('Table');
+  const [userID, setUserID] = useState<string | undefined>("auth0|63eebad1df31b1e61b3a1d5c") //so that some default data displays to visitors
   const { user } = useAuth0();
 
-  useEffect(() => {
+  const fetchData = () => {
     fetch((url + '/lifts'), {
       method: "POST",
       body: JSON.stringify({
-        user_id: user?.sub,
+        user_id: userID,
         lift_type: lift,
       }),
       headers: {
@@ -45,7 +46,14 @@ function Home() {
       .then((data) => {
         setE1rm(0);
         setRowData(data)});
-  }, [lift, newData, user, view])
+        if (user?.sub) {
+          setUserID(user?.sub);
+        }
+      }
+
+  useEffect(fetchData, [lift, newData, userID, view, user])
+
+  
 
   rowData?.forEach((lift) => {
     if (lift.estimated_max > e1rm) {
@@ -60,7 +68,7 @@ function Home() {
       <h2 className="heading">{ lift }</h2>
       <h3 className="heading">Best e1rm: { Number(e1rm).toFixed(2) }</h3>
       
-      <Table newData={newData} setNewData={setNewData} userID={user?.sub} lift={lift} rowData={rowData}/>
+      <Table newData={newData} setNewData={setNewData} userID={userID} lift={lift} rowData={rowData}/>
       <AddLift lift={lift} newData={newData} setNewData={setNewData}/>
     </div>
     )
@@ -74,7 +82,7 @@ function Home() {
     content = (
     <div className="content-container">
       <h2 className="heading">{ lift }</h2>
-      <Graph lift={lift} user_id={user?.sub} />
+      <Graph lift={lift} userID={userID} />
     </div>
     )
   } else {
