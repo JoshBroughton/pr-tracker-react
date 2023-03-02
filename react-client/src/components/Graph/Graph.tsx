@@ -54,14 +54,22 @@ function Graph({ lift, user_id }:GraphProps) {
   }, [lift, user_id])
 
   let dataset = {
-    labels: data.map((point) => {
-      let date = new Date(point.date);
-      return date.toDateString().substring(4);
-    }),
+    labels: data
+      .sort((a, b) => {
+        return new Date(a.date).getTime() - new Date(b.date).getTime();
+      })
+      .map((point) => {
+        let date = new Date(point.date);
+        return date.toDateString().substring(4);
+      }),
     datasets: [
       {
         label: "e1RM Over Time",
-        data: data.map((point) => point.estimated_max)
+        data: data
+          .sort((a, b) => {
+            return new Date(a.date).getTime() - new Date(b.date).getTime();
+          })
+          .map((point) => point.estimated_max)
       }
     ]
     }
