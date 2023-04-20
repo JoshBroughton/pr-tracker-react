@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
 import App from './App';
-import Home from './components/Home/Home';
 import reportWebVitals from './reportWebVitals';
 import { Auth0Provider } from '@auth0/auth0-react';
 
@@ -27,13 +25,7 @@ root.render(
       redirect_uri: redirect_url,
     }}
   >
-    <Router>
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route path="/" element={<Home />} />
-        </Route>
-      </Routes>
-    </Router>
+    <App />
   </Auth0Provider>
 );
 
