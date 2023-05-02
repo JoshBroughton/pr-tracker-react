@@ -1,5 +1,5 @@
 .sidebar {
-    height: 100%;
+    height: calc(100vh - 175px);
     padding-top: 25px;
     background-color: black;
     color: white;
