@@ -10,8 +10,8 @@ function App() {
 
   return (
     <div className="App">
-      <Header sidebar={sidebar} setSidebar={setSidebar}/>
-      <Home sidebar={sidebar} />
+      <Header sidebar={sidebar} setSidebar={setSidebar} />
+      <Home sidebar={sidebar} setSidebar={setSidebar} />
       <Footer />
     </div>
   );

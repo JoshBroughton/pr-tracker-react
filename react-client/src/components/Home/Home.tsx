@@ -24,9 +24,10 @@ export interface LiftRecord {
 
 interface homeProps {
   sidebar: boolean,
+  setSidebar: (newSidebar: boolean) => void
 }
 
-function Home({sidebar}:homeProps) {
+function Home({sidebar, setSidebar}:homeProps) {
   const [rowData, setRowData] = useState<LiftRecord[]>([]);
   const [e1rm, setE1rm] = useState<number>(0);
   const [lift, setLift] = useState<string>('Squat');
@@ -101,13 +102,13 @@ function Home({sidebar}:homeProps) {
   if (sidebar) {
     return(
       <div className="main-container">
-        <Sidebar sidebar={sidebar} setView={setView} setLift={setLift}/>
+        <Sidebar setSidebar={setSidebar} sidebar={sidebar} setView={setView} setLift={setLift}/>
       </div>
     )
   } else {
     return(
       <div className="main-container">
-        <Sidebar setView={setView} setLift={setLift} sidebar={sidebar}/>
+        <Sidebar setSidebar={setSidebar} setView={setView} setLift={setLift} sidebar={sidebar}/>
         <div className="grid-sub-container">
           {content}
         </div>
