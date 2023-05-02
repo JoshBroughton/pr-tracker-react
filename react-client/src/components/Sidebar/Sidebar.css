@@ -14,7 +14,18 @@
 }
 
 @media screen and (max-width: 460px) {
- .sidebar {
-    display: none;
- }
+    .sidebar {
+        width: 100vw;
+        justify-self: center;
+        align-self: center;
+        background-color: #43464B;
+        padding-bottom: 40px;
+        height: auto;
+    }
+
+    .button-flex {
+        height: auto;
+        align-items: flex-end;
+        padding-right: 15px;
+    }
 }

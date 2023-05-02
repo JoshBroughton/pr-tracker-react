@@ -4,9 +4,23 @@ import LogoutButton from "../LogoutButton/LogoutButton";
 import './Header.css';
 import { useAuth0 } from "@auth0/auth0-react";
 
-function Header() {
+interface headerProps {
+    sidebar: boolean,
+    setSidebar: (newSidebar: boolean) => void
+}
+
+function Header({sidebar, setSidebar}:headerProps) {
     const { isAuthenticated } = useAuth0();
     let authButton;
+
+    const menuHandler = () => {
+        if (sidebar) {
+            setSidebar(false);
+        } else {
+            setSidebar(true);
+        }
+    }
+
     if (isAuthenticated) {
         authButton = <LogoutButton className="nav-link"/>
     } else {
@@ -19,7 +33,7 @@ function Header() {
             <div>
                 { authButton }
             </div>
-            <button className='hamburger'></button>
+            <button className='hamburger' onClick={menuHandler}></button>
         </header>
     )
 }
