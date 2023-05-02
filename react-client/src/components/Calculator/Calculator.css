@@ -25,3 +25,11 @@ label {
 input {
     margin: 10px;
 }
+
+@media screen and (max-width: 460px) {
+    .calc-content {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+    }
+}

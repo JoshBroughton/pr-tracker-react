@@ -16,9 +16,9 @@ function Header() {
     return(
         <header className="Header">
             <h1>PR Tracker</h1>
-            <nav className="headerNav">
+            <div>
                 { authButton }
-            </nav>
+            </div>
             <button className='hamburger'></button>
         </header>
     )

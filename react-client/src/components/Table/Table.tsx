@@ -61,7 +61,7 @@ function Table(props:TableProps) {
   if (rowData) {
     rows = rowData.map(mapRow);
   }
-  
+
 
   return(
     <table>
@@ -69,7 +69,7 @@ function Table(props:TableProps) {
         <tr>
           <th>Reps</th>
           <th>Weight</th>
-          <th>Estimated 1-Rep Max</th>
+          <th>E1RM</th>
           <th>Date</th>
           <th>DELETE</th>
         </tr>

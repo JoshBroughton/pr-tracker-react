@@ -10,13 +10,6 @@
     color: white;
 }
 
-.headerNav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    color: white;
-    font-size: larger;
-}
 
 .nav-link {
     color: white;
@@ -35,13 +28,16 @@
 @media screen and (max-width: 460px) {
     .Header {
         width: 100vw;
-        height: 50vh;
-        padding: 0;
+        padding: 20px 0;
+        margin: 0;
+        padding-left: 0;
+        justify-content: center;
     }
 
     h1 {
         font-size: 30px;
         order: 2;
+        padding: 0 25px 0 15px;
     }
 
     .nav-link {
