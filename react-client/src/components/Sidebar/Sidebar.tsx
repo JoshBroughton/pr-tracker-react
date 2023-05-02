@@ -3,14 +3,15 @@ import Button from "../Button/Button";
 import './Sidebar.css';
 
 interface SidebarProps {
+  sidebar: boolean,
   setLift: (lift: string) => void,
   setView: (view: string) => void
 }
 
-function Sidebar({setLift, setView}:SidebarProps) {
+function Sidebar({sidebar, setLift, setView}:SidebarProps) {
   return(
     <>
-      <div className="sidebar">
+      <div className={sidebar ? "sidebar" : "hidden"}>
         <div className="button-flex">
           <h2>Select Lift</h2>
           <Button className={'my-button'} onClick={setLift} label="Squat"/>
@@ -22,7 +23,7 @@ function Sidebar({setLift, setView}:SidebarProps) {
           <Button className={'my-button'} onClick={setView} label="Calculator"/>
         </div>
       </div>
-    </>   
+    </>
   )
 }
 

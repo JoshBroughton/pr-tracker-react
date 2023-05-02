@@ -101,12 +101,13 @@ function Home({sidebar}:homeProps) {
   if (sidebar) {
     return(
       <div className="main-container">
-        <Sidebar setView={setView} setLift={setLift}/>
+        <Sidebar sidebar={sidebar} setView={setView} setLift={setLift}/>
       </div>
     )
   } else {
     return(
       <div className="main-container">
+        <Sidebar setView={setView} setLift={setLift} sidebar={sidebar}/>
         <div className="grid-sub-container">
           {content}
         </div>

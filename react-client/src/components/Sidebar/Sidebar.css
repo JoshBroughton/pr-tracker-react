@@ -6,6 +6,14 @@
     text-align: center;
 }
 
+.hidden {
+    height: calc(100vh - 175px);
+    padding-top: 25px;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
 .button-flex {
     display: flex;
     flex-direction: column;
@@ -21,6 +29,10 @@
         background-color: #43464B;
         padding-bottom: 40px;
         height: auto;
+    }
+
+    .hidden {
+        display: none;
     }
 
     .button-flex {
