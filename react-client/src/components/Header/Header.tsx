@@ -8,7 +8,7 @@ function Header() {
     const { isAuthenticated } = useAuth0();
     let authButton;
     if (isAuthenticated) {
-       authButton = <LogoutButton className="nav-link"/>
+        authButton = <LogoutButton className="nav-link"/>
     } else {
         authButton = <LoginButton className="nav-link"/>
     }
@@ -19,6 +19,7 @@ function Header() {
             <nav className="headerNav">
                 { authButton }
             </nav>
+            <button className='hamburger'></button>
         </header>
     )
 }

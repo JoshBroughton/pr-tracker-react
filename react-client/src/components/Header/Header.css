@@ -23,14 +23,39 @@
     padding: 10px;
     text-decoration: none;
     background: none;
+    background-color: #43464B;
     border: none;
     font-size: 20px;
 }
 
-.nav-link-active {
-    padding: 10px;
-    color: white;
-    background: none;
-    border: none;
-    font-size: 20px;
+.hamburger {
+    display: none;
+  }
+
+@media screen and (max-width: 460px) {
+    .Header {
+        width: 100vw;
+        height: 50vh;
+        padding: 0;
+    }
+
+    h1 {
+        font-size: 30px;
+        order: 2;
+    }
+
+    .nav-link {
+        order: 1;
+    }
+
+    .hamburger {
+        display: block;
+        background-image: url('../../../public/images/hamburger.jpg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 50px;
+        height: 50px;
+        border: 1px solid black;
+        order: 3;
+      }
 }
