@@ -10,13 +10,13 @@ interface SidebarProps {
 }
 
 function Sidebar({sidebar, setLift, setView, setSidebar}:SidebarProps) {
-  const changeLift = (lift:string):void => {
-    setLift(lift);
-    setSidebar(false);
-  }
-
-  const changeView = (view:string):void => {
+  const changeView = (value:string):void => {
+    const values = value.split('_');
+    console.log(values);
+    const lift = values[0];
+    const view = values[1];
     setView(view);
+    setLift(lift);
     setSidebar(false);
   }
 
@@ -24,14 +24,18 @@ function Sidebar({sidebar, setLift, setView, setSidebar}:SidebarProps) {
     <>
       <div className={sidebar ? "sidebar" : "hidden"}>
         <div className="button-flex">
-          <h2>Select Lift</h2>
-          <Button className={'my-button'} onClick={changeLift} label="Squat"/>
-          <Button className={'my-button'} onClick={changeLift} label="Bench"/>
-          <Button className={'my-button'} onClick={changeLift} label="Deadlift"/>
-          <h2>Select View</h2>
-          <Button className={'my-button'} onClick={changeView} label="Table"/>
-          <Button className={'my-button'} onClick={changeView} label="Graph"/>
-          <Button className={'my-button'} onClick={changeView} label="Calculator"/>
+          <h2>Squat</h2>
+          <Button className={'my-button'} value="Squat_Table" onClick={changeView} label="Table"/>
+          <Button className={'my-button'} value="Squat_Graph" onClick={changeView} label="Graph"/>
+          <Button className={'my-button'} value="Squat_Calculator" onClick={changeView} label="Calculator"/>
+          <h2>Bench</h2>
+          <Button className={'my-button'} value="Bench_Table" onClick={changeView} label="Table"/>
+          <Button className={'my-button'} value="Bench_Graph" onClick={changeView} label="Graph"/>
+          <Button className={'my-button'} value="Bench_Calculator" onClick={changeView} label="Calculator"/>
+          <h2>Deadlift</h2>
+          <Button className={'my-button'} value="Deadlift_Table" onClick={changeView} label="Table"/>
+          <Button className={'my-button'} value="Deadlift_Graph" onClick={changeView} label="Graph"/>
+          <Button className={'my-button'} value="Deadlift_Calculator" onClick={changeView} label="Calculator"/>
         </div>
       </div>
     </>

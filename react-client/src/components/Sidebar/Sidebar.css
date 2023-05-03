@@ -1,6 +1,6 @@
 .sidebar {
     height: calc(100vh - 250px);
-    padding-top: 50px;
+    padding-top: 100px;
     background-color: black;
     color: white;
     text-align: center;
@@ -17,7 +17,7 @@
 .button-flex {
     display: flex;
     flex-direction: column;
-    height: 35%;
+    height: 60%;
     justify-content: space-evenly;
 }
 
