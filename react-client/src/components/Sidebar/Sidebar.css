@@ -1,14 +1,14 @@
 .sidebar {
-    height: calc(100vh - 175px);
-    padding-top: 25px;
+    height: calc(100vh - 250px);
+    padding-top: 50px;
     background-color: black;
     color: white;
     text-align: center;
 }
 
 .hidden {
-    height: calc(100vh - 175px);
-    padding-top: 25px;
+    height: calc(100vh - 250px);
+    padding-top: 100px;
     background-color: black;
     color: white;
     text-align: center;

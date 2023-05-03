@@ -3,20 +3,7 @@
     border: none;
     outline: none;
     color: white;
-    font-size: larger;
-}
-
-.delete-button {
-    background-color: transparent;
-    border: none;
-    outline: none;
-    color: black;
-    font-size: large;
-    font-weight: 600;
-}
-
-.delete-button:hover {
-    transform: scale(1.1);
+    font-size: 36px;
 }
 
 .my-button:hover {
