@@ -25,13 +25,13 @@
     display: none;
   }
 
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 960px) {
     .Header {
         width: 100vw;
         padding: 20px 0;
         margin: 0;
         padding-left: 0;
-        justify-content: center;
+        justify-content: space-evenly;
     }
 
     h1 {
