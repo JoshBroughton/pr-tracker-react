@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/pr-tracker-react/static/css/main.fddb962f.css",
+    "main.css": "/pr-tracker-react/static/css/main.903a7930.css",
     "main.js": "/pr-tracker-react/static/js/main.407f8f9b.js",
     "static/js/787.92ee7bcc.chunk.js": "/pr-tracker-react/static/js/787.92ee7bcc.chunk.js",
     "static/media/hamburger.jpg": "/pr-tracker-react/static/media/hamburger.23515f7fe1eb60e9b081.jpg",
     "index.html": "/pr-tracker-react/index.html",
-    "main.fddb962f.css.map": "/pr-tracker-react/static/css/main.fddb962f.css.map",
+    "main.903a7930.css.map": "/pr-tracker-react/static/css/main.903a7930.css.map",
     "main.407f8f9b.js.map": "/pr-tracker-react/static/js/main.407f8f9b.js.map",
     "787.92ee7bcc.chunk.js.map": "/pr-tracker-react/static/js/787.92ee7bcc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fddb962f.css",
+    "static/css/main.903a7930.css",
     "static/js/main.407f8f9b.js"
   ]
 }
