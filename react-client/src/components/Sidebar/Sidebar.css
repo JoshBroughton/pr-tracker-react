@@ -1,6 +1,14 @@
 .sidebar {
-    height: 100%;
-    padding-top: 25px;
+    height: calc(100vh - 250px);
+    padding-top: 100px;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.hidden {
+    height: calc(100vh - 250px);
+    padding-top: 100px;
     background-color: black;
     color: white;
     text-align: center;
@@ -9,6 +17,27 @@
 .button-flex {
     display: flex;
     flex-direction: column;
-    height: 35%;
+    height: 60%;
     justify-content: space-evenly;
+}
+
+@media screen and (max-width: 960px) {
+    .sidebar {
+        width: 100vw;
+        justify-self: center;
+        align-self: center;
+        background-color: #43464B;
+        padding-bottom: 40px;
+        height: auto;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .button-flex {
+        height: auto;
+        align-items: flex-end;
+        padding-right: 15px;
+    }
 }

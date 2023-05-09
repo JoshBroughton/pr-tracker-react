@@ -22,7 +22,12 @@ export interface LiftRecord {
   estimated_max: number;
 }
 
-function Home() {
+interface homeProps {
+  sidebar: boolean,
+  setSidebar: (newSidebar: boolean) => void
+}
+
+function Home({sidebar, setSidebar}:homeProps) {
   const [rowData, setRowData] = useState<LiftRecord[]>([]);
   const [e1rm, setE1rm] = useState<number>(0);
   const [lift, setLift] = useState<string>('Squat');
@@ -53,7 +58,7 @@ function Home() {
 
   useEffect(fetchData, [lift, newData, userID, view, user])
 
-  
+
 
   rowData?.forEach((lift) => {
     if (lift.estimated_max > e1rm) {
@@ -67,7 +72,7 @@ function Home() {
     <div className="content-container">
       <h2 className="heading">{ lift }</h2>
       <h3 className="heading">Best e1rm: { Number(e1rm).toFixed(2) }</h3>
-      
+
       <Table newData={newData} setNewData={setNewData} userID={userID} lift={lift} rowData={rowData}/>
       <AddLift lift={lift} newData={newData} setNewData={setNewData}/>
     </div>
@@ -88,20 +93,28 @@ function Home() {
   } else {
     content = (
     <div className="content-container">
-      <h2 className="heading">{ lift }</h2> 
-      <AddLift lift={lift} newData={newData} setNewData={setNewData}/> 
+      <h2 className="heading">{ lift }</h2>
+      <AddLift lift={lift} newData={newData} setNewData={setNewData}/>
     </div>
     )
   }
 
-  return(
-    <div className="main-container">
-      <Sidebar setView={setView} setLift={setLift}/>
-      <div className="grid-sub-container">
-        {content}
+  if (sidebar) {
+    return(
+      <div className="main-container">
+        <Sidebar setSidebar={setSidebar} sidebar={sidebar} setView={setView} setLift={setLift}/>
       </div>
-    </div>
-  )
+    )
+  } else {
+    return(
+      <div className="main-container">
+        <Sidebar setSidebar={setSidebar} setView={setView} setLift={setLift} sidebar={sidebar}/>
+        <div className="grid-sub-container">
+          {content}
+        </div>
+      </div>
+    )
+  }
 }
 
 export default Home;

@@ -36,7 +36,7 @@ function Calculator({ rowData, e1rm, lift }:CalculatorProps) {
       <h2>Lift Type: {lift}</h2>
       <form onSubmit={calculateMax}>
         <label>
-          Enter the weight for the AMRAP set to get the number of reps required for a new PR:
+          Enter the weight for the AMRAP set:
           <input
             type="text"
             pattern="[0-9]*" // this fixes the weird leading zero issue
@@ -46,8 +46,6 @@ function Calculator({ rowData, e1rm, lift }:CalculatorProps) {
         </label>
         <input type="submit" value="Submit" />
       </form>
-      <h2>Weight:</h2>
-      <p>{weight}</p>
       <h2>Reps required for new high estimated 1 rep max:</h2>
       <p>{repsRequired}</p>
       <h2>New estimated 1 rep max if successful:</h2>

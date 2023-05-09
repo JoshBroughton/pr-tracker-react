@@ -10,3 +10,12 @@ table {
 .delete-button {
   color: black;
 }
+
+@media screen and (max-width: 960px) {
+  table {
+    font-size: large;
+    width: 95vw;
+    margin: 0;
+    padding: 0;
+  }
+}

@@ -8,7 +8,7 @@ interface LoginProps  {
 const LoginButton = (props:LoginProps) => {
   const { loginWithRedirect } = useAuth0();
 
-  return <button className={props.className} onClick={() => loginWithRedirect()}>Log In/Register</button>;
+  return <button className={props.className} onClick={() => loginWithRedirect()}>Sign Up</button>;
 };
 
 export default LoginButton;
