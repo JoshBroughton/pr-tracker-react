@@ -1,6 +1,4 @@
 -- commands used to create databse and table
-CREATE DATABASE prtracker;
-
 CREATE TABLE lifts (
     id serial PRIMARY KEY,
     user_id VARCHAR( 100 ) NOT NULL,

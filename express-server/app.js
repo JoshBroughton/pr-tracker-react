@@ -3,9 +3,11 @@ const cors = require('cors');
 const app = express();
 const pool = require('./db');
 const port = 4000;
+const path = require('node:path');
+require('dotenv').config();
 // run with node app.js
 const corsOptions = {
-  origin: 'https://joshbroughton.github.io',
+  origin: 'http://localhost:3000',
   optionsSuccessStatus: 200,
 };
 
@@ -64,7 +66,7 @@ app.post('/delete_lift', cors(corsOptions), async (req, res) => {
       'DELETE FROM lifts WHERE user_id = $1 AND lift_type = $2 AND id = $3',
       [user_id, lift_type, id]
     )
-    
+
     res.json(lifts.rows)
   } catch (error) {
     console.error(error.message);

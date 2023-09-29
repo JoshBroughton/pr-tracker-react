@@ -1,6 +1,7 @@
 {
   "name": "express-server",
   "version": "1.0.0",
+  "proxy": "http://localhost:4000",
   "description": "",
   "main": "app.js",
   "scripts": {
