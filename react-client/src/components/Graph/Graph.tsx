@@ -23,11 +23,7 @@ ChartJS.register(
 );
 
 let url:string | undefined;
-if (process.env.NODE_ENV === 'development') {
-  url = process.env.REACT_APP_LOCAL_URL;
-} else {
-  url = process.env.REACT_APP_PROD_URL;
-}
+url = 'http://localhost:4000';
 
 interface GraphProps {
   lift: string,
@@ -36,7 +32,7 @@ interface GraphProps {
 
 function Graph({ lift, userID }:GraphProps) {
   const [data, setData] = useState<LiftRecord[]>([]);
-  
+
   useEffect(() => {
     fetch((url + '/all_lifts'), {
       method: "POST",
@@ -97,7 +93,7 @@ function Graph({ lift, userID }:GraphProps) {
 
   return (
     <>
-      <Line 
+      <Line
         data={dataset}
         options={{
           plugins: {

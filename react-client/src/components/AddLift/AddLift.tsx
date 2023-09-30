@@ -9,11 +9,7 @@ interface AddLiftProps {
 }
 
 let url:string | undefined;
-if (process.env.NODE_ENV === 'development') {
-  url = process.env.REACT_APP_LOCAL_URL;
-} else {
-  url = process.env.REACT_APP_PROD_URL;
-}
+url = 'http://localhost:4000';
 
 function AddLift(props:AddLiftProps) {
   const [reps, setReps] = useState<number>(1);

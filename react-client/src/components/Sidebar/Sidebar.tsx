@@ -12,7 +12,6 @@ interface SidebarProps {
 function Sidebar({sidebar, setLift, setView, setSidebar}:SidebarProps) {
   const changeView = (value:string):void => {
     const values = value.split('_');
-    console.log(values);
     const lift = values[0];
     const view = values[1];
     setView(view);
