@@ -10,11 +10,9 @@ const root = ReactDOM.createRoot(
 );
 
 let redirect_url:string | undefined;
-if (process.env.NODE_ENV === 'development') {
-  redirect_url = window.location.origin;
-} else {
-  redirect_url = 'https://joshbroughton.github.io/pr-tracker-react/';
-}
+
+redirect_url = window.location.origin;
+
 
 root.render(
   <Auth0Provider
