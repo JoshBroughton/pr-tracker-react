@@ -7,7 +7,7 @@ console.log(process.env);
 pool = new Pool({
   user: 'postgres',
   password: process.env.POSTGRES_PASSWORD,
-  host: 'postgres',
+  host: process.env.POSTGRES_HOST,
   port: 5432,
 })
 

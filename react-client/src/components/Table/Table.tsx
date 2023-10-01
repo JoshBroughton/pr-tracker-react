@@ -11,7 +11,7 @@ interface TableProps {
 }
 
 let url:string | undefined;
-url = 'http://localhost:4000';
+url = process.env.API_URL;
 
 function Table(props:TableProps) {
   const rowData = props.rowData
