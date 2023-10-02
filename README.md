@@ -1,8 +1,8 @@
 # pr-tracker-react
 
-![Uptime Robot status](https://img.shields.io/uptimerobot/status/m795401477-243babb8a2eda3bfd5ce5511)
-![Uptime Robot ratio (7 days)](https://img.shields.io/uptimerobot/ratio/7/m795401477-243babb8a2eda3bfd5ce5511)
-![Uptime Robot ratio (30 days)](https://img.shields.io/uptimerobot/ratio/m795401477-243babb8a2eda3bfd5ce5511)
+Current Status: ![Uptime Robot status](https://img.shields.io/uptimerobot/status/m795401477-243babb8a2eda3bfd5ce5511)
+7 Day Uptime: ![Uptime Robot ratio (7 days)](https://img.shields.io/uptimerobot/ratio/7/m795401477-243babb8a2eda3bfd5ce5511)
+30 Day Uptime: ![Uptime Robot ratio (30 days)](https://img.shields.io/uptimerobot/ratio/m795401477-243babb8a2eda3bfd5ce5511)
 
 
 Use the site: [https://joshbroughton.github.io/pr-tracker-react/](https://pr-tracker.dev.joshbroughton.me)
