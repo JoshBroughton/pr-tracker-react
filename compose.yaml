@@ -21,9 +21,7 @@ services:
      - 3000:3000
 
   express:
-    build:
-      context: ./
-      dockerfile: ./express-server
+    build: ./express-server
     environment:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     ports:
