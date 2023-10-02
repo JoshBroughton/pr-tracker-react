@@ -8,7 +8,7 @@ import Calculator from "../Calculator/Calculator";
 import Graph from "../Graph/Graph";
 
 let url:string | undefined;
-url = 'http://localhost:4000';
+url = "https://pr-tracker-server.dev.joshbroughton.me"
 
 export interface LiftRecord {
   id: number;

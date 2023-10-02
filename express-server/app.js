@@ -7,7 +7,7 @@ const path = require('node:path');
 require('dotenv').config();
 // run with node app.js
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: 'https://pr-tracker.dev.joshbroughton.me',
   optionsSuccessStatus: 200,
 };
 

@@ -9,7 +9,7 @@ interface AddLiftProps {
 }
 
 let url:string | undefined;
-url = 'http://localhost:4000';
+url = "https://pr-tracker-server.dev.joshbroughton.me"
 
 function AddLift(props:AddLiftProps) {
   const [reps, setReps] = useState<number>(1);

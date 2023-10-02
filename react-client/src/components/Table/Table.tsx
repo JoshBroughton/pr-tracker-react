@@ -11,7 +11,7 @@ interface TableProps {
 }
 
 let url:string | undefined;
-url = process.env.API_URL;
+url = "https://pr-tracker-server.dev.joshbroughton.me"
 
 function Table(props:TableProps) {
   const rowData = props.rowData

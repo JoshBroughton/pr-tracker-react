@@ -23,7 +23,7 @@ ChartJS.register(
 );
 
 let url:string | undefined;
-url = 'http://localhost:4000';
+url = "https://pr-tracker-server.dev.joshbroughton.me"
 
 interface GraphProps {
   lift: string,
